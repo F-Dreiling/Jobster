@@ -25,17 +25,13 @@ Route::get('/', function () {
 
 // Single Listing
 
-Route::get('/listings/{id}', function ($id) {
+Route::get('/listings/{listing}', function (Listing $listing) {
     return view('listing', [
-        'listing' => Listing::find($id)
+        'listing' => $listing
     ]);
 });
 
 // Not Required
-
-Route::get('/welcome', function () {
-    return view('welcome');
-});
 
 Route::get('/hello', function () {
     return response('<h1>Hello World</h1>', 200)
@@ -43,12 +39,12 @@ Route::get('/hello', function () {
             ->header('foo', 'bar');
 });
 
-Route::get('/posts/{id}', function($id) {
+Route::get('/tests/{id}', function($id) {
     //dd($id);
     //ddd($id);
-    return response('Post '. $id);
+    return response('Test '. $id);
 })->where('id', '[0-9]+');
 
-Route::get('/search', function(Request $request) {
+Route::get('/test', function(Request $request) {
     return $request->name . ' ' . $request->city;
 });

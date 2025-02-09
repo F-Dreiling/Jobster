@@ -14,15 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/posts', function() {
+Route::get('/tests', function() {
     return response()->json([
-        'posts' => [
+        'tests' => [
             [
-                'title' => 'Post One',
+                'title' => 'Test One',
                 'content' => 'Message 1'
             ],
             [
-                'title' => 'Post Two',
+                'title' => 'Test Two',
                 'content' => 'Message 2'
             ]
         ]
