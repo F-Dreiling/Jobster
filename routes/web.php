@@ -20,11 +20,20 @@ use App\Models\Listing;
 
 Route::get('/', [ListingController::class, 'index']);
 
-// Single Listing
+// Create Listing
+
+Route::get('/listings/create', [ListingController::class, 'create']);
+
+// Store Listing
+
+Route::post('/listings', [ListingController::class, 'store']);
+
+// Single Listing: route needs to be after /listings/* routes with parameters
 
 Route::get('/listings/{listing}', [ListingController::class, 'show']);
 
-// Not Required
+
+// Not Used
 
 Route::get('/hello', function () {
     return response('<h1>Hello World</h1>', 200)
