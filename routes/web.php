@@ -20,13 +20,21 @@ use App\Models\Listing;
 
 Route::get('/', [ListingController::class, 'index']);
 
-// Create Listing
+// Show Create Form
 
 Route::get('/listings/create', [ListingController::class, 'create']);
 
 // Store Listing
 
 Route::post('/listings', [ListingController::class, 'store']);
+
+// Show Edit Form
+
+Route::get('/listings/{listing}/edit', [ListingController::class, 'edit']);
+
+// Update Listing
+
+Route::post('/listings/{listing}', [ListingController::class, 'update']);
 
 // Single Listing: route needs to be after /listings/* routes with parameters
 
