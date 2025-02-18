@@ -16,6 +16,14 @@ use App\Models\Listing;
 |
 */
 
+// index: show all listings
+// show: show single listing
+// create: show form to create new listing
+// store: store new listing
+// edit: show form to update listing
+// update: update listing
+// destroy: delete listing
+
 // All Listings
 
 Route::get('/', [ListingController::class, 'index']);
@@ -34,11 +42,15 @@ Route::get('/listings/{listing}/edit', [ListingController::class, 'edit']);
 
 // Update Listing
 
-Route::post('/listings/{listing}', [ListingController::class, 'update']);
+Route::put('/listings/{listing}', [ListingController::class, 'update']);
 
 // Single Listing: route needs to be after /listings/* routes with parameters
 
 Route::get('/listings/{listing}', [ListingController::class, 'show']);
+
+// Delete Listing
+
+Route::delete('/listings/{listing}', [ListingController::class, 'destroy']);
 
 
 // Not Used
