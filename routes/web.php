@@ -62,7 +62,7 @@ Route::post('/users', [UserController::class, 'store']);
 
 // Show Login Form
 
-Route::get('/login', [UserController::class, 'login-form']);
+Route::get('/login', [UserController::class, 'loginForm']);
 
 // Log User In
 
