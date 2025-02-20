@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use App\Models\Listing;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -15,9 +16,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::factory(5)->create();
+        // \App\Models\User::factory(5)->create();
+        $user = User::factory()->create([
+            'name' => 'John Doe',
+            'email' => 'john@doe.com',
+            'password' => bcrypt('testing')
+        ]);
 
         Listing::create([
+            'user_id' => $user->id,
             'title' => 'Laravel Senior Developer', 
             'tags' => 'laravel, javascript',
             'company' => 'Acme Corp',
@@ -28,6 +35,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Listing::create([
+            'user_id' => $user->id,
             'title' => 'Full-Stack Engineer',
             'tags' => 'laravel, backend, api',
             'company' => 'Stark Industries',
@@ -38,6 +46,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Listing::create([
+            'user_id' => $user->id,
             'title' => 'Laravel Developer', 
             'tags' => 'laravel, vue, javascript',
             'company' => 'Wayne Enterprises',
@@ -48,6 +57,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Listing::create([
+            'user_id' => $user->id,
             'title' => 'Backend Developer', 
             'tags' => 'laravel, php, api',
             'company' => 'Skynet Systems',
@@ -58,6 +68,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Listing::create([
+            'user_id' => $user->id,
             'title' => 'Java Full-Stack Developer',
             'tags' => 'java, backend, api',
             'company' => 'Corp Inc.',
@@ -68,6 +79,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Listing::create([
+            'user_id' => $user->id,
             'title' => 'PHP Developer', 
             'tags' => 'php, symfony, javascript',
             'company' => 'Inc Corp',
