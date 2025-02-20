@@ -30,19 +30,19 @@ Route::get('/', [ListingController::class, 'index']);
 
 // Show Create Form
 
-Route::get('/create', [ListingController::class, 'create']);
+Route::get('/create', [ListingController::class, 'create'])->middleware('auth');
 
 // Store Listing
 
-Route::post('/listings', [ListingController::class, 'store']);
+Route::post('/listings', [ListingController::class, 'store'])->middleware('auth');
 
 // Show Edit Form
 
-Route::get('/listings/{listing}/edit', [ListingController::class, 'edit']);
+Route::get('/listings/{listing}/edit', [ListingController::class, 'edit'])->middleware('auth');
 
 // Update Listing
 
-Route::put('/listings/{listing}', [ListingController::class, 'update']);
+Route::put('/listings/{listing}', [ListingController::class, 'update'])->middleware('auth');
 
 // Single Listing: route needs to be after /listings/* routes with parameters
 
@@ -50,27 +50,27 @@ Route::get('/listings/{listing}', [ListingController::class, 'show']);
 
 // Delete Listing
 
-Route::delete('/listings/{listing}', [ListingController::class, 'destroy']);
+Route::delete('/listings/{listing}', [ListingController::class, 'destroy'])->middleware('auth');
 
 // Show Register Form
 
-Route::get('/register', [UserController::class, 'create']);
+Route::get('/register', [UserController::class, 'create'])->middleware(middleware: 'guest');
 
 // Store User
 
-Route::post('/users', [UserController::class, 'store']);
+Route::post('/users', [UserController::class, 'store'])->middleware(middleware: 'guest');
 
 // Show Login Form
 
-Route::get('/login', [UserController::class, 'loginForm']);
+Route::get('/login', [UserController::class, 'loginForm'])->name('login')->middleware('guest');
 
 // Log User In
 
-Route::post('/login', [UserController::class, 'login']);
+Route::post('/login', [UserController::class, 'login'])->middleware(middleware: 'guest');
 
 // Log User Out
 
-Route::post('/logout', [UserController::class, 'logout']);
+Route::post('/logout', [UserController::class, 'logout'])->middleware('auth');
 
 
 // Not Used
