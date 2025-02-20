@@ -28,6 +28,10 @@ use App\Http\Controllers\ListingController;
 
 Route::get('/', [ListingController::class, 'index']);
 
+// Manage Listings
+
+Route::get('/listings/manage', [ListingController::class, 'manage'])->middleware('auth');
+
 // Show Create Form
 
 Route::get('/create', [ListingController::class, 'create'])->middleware('auth');
