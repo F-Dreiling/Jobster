@@ -1,8 +1,0 @@
-server {
-    root /home/site/wwwroot/public;
-
-    location / {            
-        index  index.php index.html index.htm hostingstart.html;
-        try_files $uri $uri/ /index.php?$args;
-    }
-}
