@@ -63,8 +63,8 @@ class ListingController extends Controller
         //dd($request->file('logo'));
 
         // Make sure logged in user is owner
-        if ($listing->user_id != auth()->user()) {
-            abort(403, 'Unauthprized');
+        if ($listing->user_id != auth()->user()->id) {
+            abort(403, 'Unauthorized');
         }
 
         $formFields = $request->validate([
@@ -89,8 +89,8 @@ class ListingController extends Controller
     // Delete Listing
     public function destroy(Listing $listing) {
         // Make sure logged in user is owner
-        if ($listing->user_id != auth()->user()) {
-            abort(403, 'Unauthprized');
+        if ($listing->user_id != auth()->user()->id) {
+            abort(403, 'Unauthorized');
         }
         
         $listing->delete();
