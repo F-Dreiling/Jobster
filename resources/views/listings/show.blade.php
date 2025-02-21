@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <a href="/" class="inline-block text-black ml-4 mb-4">
+    <a href="" class="inline-block text-black ml-4 mb-4">
         <i class="fa-solid fa-arrow-left"></i> Back
     </a>
 
@@ -50,11 +50,11 @@
         @if(auth()->user() && $listing->user_id == auth()->user()->id)
 
         <x-card class="mt-4 p-2 flex space-x-6">
-            <a href="/listings/{{ $listing->id }}/edit">
+            <a href="listings/{{ $listing->id }}/edit">
                 <i class="fa-solid fa-pencil"></i> Edit
             </a>
 
-            <form method="POST" action="/listings/{{ $listing->id }}">
+            <form method="POST" action="listings/{{ $listing->id }}">
                 @csrf
                 @method('DELETE')
                 <button class="text-red-500">
