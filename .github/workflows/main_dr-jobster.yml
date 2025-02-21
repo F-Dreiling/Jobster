@@ -65,4 +65,4 @@ jobs:
           app-name: 'dr-jobster'
           slot-name: 'Production'
           package: .
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_DA6E352DF33A4757AF8EA68D5387FA58 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_69F85D62463E4F7E8E0CEE51043B88D6 }}
