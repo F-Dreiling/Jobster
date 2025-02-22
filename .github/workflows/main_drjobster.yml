@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy PHP app to Azure Web App - dr-jobster
+name: Build and deploy PHP app to Azure Web App - drjobster
 
 on:
   push:
@@ -62,7 +62,7 @@ jobs:
         uses: azure/webapps-deploy@v3
         id: deploy-to-webapp
         with:
-          app-name: 'dr-jobster'
+          app-name: 'drjobster'
           slot-name: 'Production'
           package: .
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_69F85D62463E4F7E8E0CEE51043B88D6 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_568251E5082C4AAE89D681C894EF9A87 }}
