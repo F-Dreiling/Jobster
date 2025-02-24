@@ -26,10 +26,6 @@ use App\Http\Controllers\ListingController;
 
 // All Listings
 
-Route::get('/public/index.php', [ListingController::class, 'index']);
-
-Route::get('/public', [ListingController::class, 'index']);
-
 Route::get('/', [ListingController::class, 'index']);
 
 // Manage Listings
