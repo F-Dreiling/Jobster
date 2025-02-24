@@ -28,8 +28,6 @@ use App\Http\Controllers\ListingController;
 
 Route::get('/', [ListingController::class, 'index']);
 
-Route::get('/public', [ListingController::class, 'index']);
-
 // Manage Listings
 
 Route::get('/listings/manage', [ListingController::class, 'manage'])->middleware('auth');
