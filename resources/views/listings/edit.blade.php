@@ -80,7 +80,7 @@
             <img class="w-48 m-6" src="{{ 
                 // $listing->logo ? asset('storage/' . $listing->logo) : asset('images/no-image.png') 
                 $listing->logo 
-                    ? file_exists(asset('storage/' . $listing->logo)) ? asset('storage/' . $listing->logo) : asset($listing->logo)
+                    ? file_exists('storage/' . $listing->logo) ? asset('storage/' . $listing->logo) : asset($listing->logo)
                     : asset('images/no-image.png')
             }}" alt="" />
 
