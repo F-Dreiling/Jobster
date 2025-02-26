@@ -77,7 +77,12 @@
             <label for="logo" class="inline-block text-lg mb-2">Company Logo</label>
             <input type="file" class="border border-gray-200 rounded p-2 w-full" name="logo" />
 
-            <img class="w-48 m-6" src="{{ $listing->logo ? asset('storage/' . $listing->logo) : asset('images/no-image.png') }}" alt="" />
+            <img class="w-48 m-6" src="{{ 
+                // $listing->logo ? asset('storage/' . $listing->logo) : asset('images/no-image.png') 
+                $listing->logo 
+                    ? file_exists(asset('storage/' . $listing->logo)) ? asset('storage/' . $listing->logo) : asset($listing->logo)
+                    : asset('images/no-image.png')
+            }}" alt="" />
 
             @error('company')
                 <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
